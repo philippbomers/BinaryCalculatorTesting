@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Binary Calculator</title>
+</head>
+<body>
+<form th:object="${binaryCalculator}" th:action="@{/calc}" method="post">
+
+    <p><label for="binary">Binär-Zahl:</label>
+        <input type="text" th:field="*{binary}" id="binary">
+    </p>
+    <p th:if="${#fields.hasErrors('binary')}" th:errors="*{binary}"></p>
+    <p><input type="submit" value="Binärzahl in Dezimalzahl umrechnen"></p>
+</form>
+
+Dezimalzahl: <p th:text="${binaryCalculator.decimal}"></p>
+
+</body>
+</html>
